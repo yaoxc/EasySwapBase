@@ -14,9 +14,9 @@ import (
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 
-	"github.com/ProjectsTask/EasySwapBase/logger/xzap"
-	"github.com/ProjectsTask/EasySwapBase/stores/gdb/orderbookmodel/multi"
-	"github.com/ProjectsTask/EasySwapBase/stores/xkv"
+	"github.com/yaoxc/EasySwapBase/logger/xzap"
+	"github.com/yaoxc/EasySwapBase/stores/gdb/orderbookmodel/multi"
+	"github.com/yaoxc/EasySwapBase/stores/xkv"
 )
 
 const (

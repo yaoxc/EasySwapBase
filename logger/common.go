@@ -8,7 +8,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/ProjectsTask/EasySwapBase/errcode"
+	"github.com/yaoxc/EasySwapBase/errcode"
 )
 
 // LogConf 配置信息

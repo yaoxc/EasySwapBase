@@ -20,7 +20,7 @@ import (
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 
-	"github.com/ProjectsTask/EasySwapBase/logger/xzap"
+	"github.com/yaoxc/EasySwapBase/logger/xzap"
 )
 
 const fetchIPFSTimeout = 30 * time.Second

@@ -1,4 +1,4 @@
-module github.com/ProjectsTask/EasySwapBase
+module github.com/yaoxc/EasySwapBase
 
 go 1.21
 

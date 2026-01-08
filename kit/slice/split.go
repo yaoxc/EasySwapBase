@@ -3,7 +3,7 @@ package slice
 import (
 	"strings"
 
-	"github.com/ProjectsTask/EasySwapBase/kit/convert"
+	"github.com/yaoxc/EasySwapBase/kit/convert"
 )
 
 const (

@@ -11,11 +11,11 @@ import (
 	"github.com/zeromicro/go-zero/core/stores/redis"
 	"go.uber.org/zap"
 
-	"github.com/ProjectsTask/EasySwapBase/stores/gdb"
+	"github.com/yaoxc/EasySwapBase/stores/gdb"
 
-	"github.com/ProjectsTask/EasySwapBase/logger/xzap"
-	"github.com/ProjectsTask/EasySwapBase/stores/gdb/orderbookmodel/multi"
-	"github.com/ProjectsTask/EasySwapBase/stores/xkv"
+	"github.com/yaoxc/EasySwapBase/logger/xzap"
+	"github.com/yaoxc/EasySwapBase/stores/gdb/orderbookmodel/multi"
+	"github.com/yaoxc/EasySwapBase/stores/xkv"
 )
 
 type EventType int

@@ -7,9 +7,9 @@ import (
 	"github.com/ethereum/go-ethereum"
 	"github.com/pkg/errors"
 
-	"github.com/ProjectsTask/EasySwapBase/chain"
-	"github.com/ProjectsTask/EasySwapBase/chain/chainclient/evmclient"
-	logTypes "github.com/ProjectsTask/EasySwapBase/chain/types"
+	"github.com/yaoxc/EasySwapBase/chain"
+	"github.com/yaoxc/EasySwapBase/chain/chainclient/evmclient"
+	logTypes "github.com/yaoxc/EasySwapBase/chain/types"
 )
 
 type ChainClient interface {
