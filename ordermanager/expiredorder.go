@@ -34,6 +34,7 @@ func (om *OrderManager) orderExpiryProcess() {
 	// 3. 每秒检查一次时间轮
 	for {
 		select {
+		// 这行代码创建了一个定时器，会在1秒后向通道发送当前时间
 		case <-time.After(time.Second * 1): // 每秒执行一次检查
 			// 如果当前索引超过时间轮大小,则取模重置
 			if om.CurrentIndex >= WheelSize {
