@@ -103,9 +103,11 @@ type ListingInfo struct {
 	Maker          string          `json:"maker"`
 }
 
+// ListenNewListingLoop 监听并处理新的订单列表
 func (om *OrderManager) ListenNewListingLoop() {
 	key := GenOrdersCacheKey(om.chain)
 	for {
+		// 1. 从Redis队列中获取新订单数据
 		result, err := om.Xkv.Lpop(key)
 		if err != nil || result == "" {
 			if err != nil && err != redis.Nil {
@@ -170,17 +172,26 @@ func (om *OrderManager) ListenNewListingLoop() {
 	}
 }
 
+// AddToOrderManagerQueue 将订单添加到订单管理器队列中
+// 参数:
+//   - order: 包含订单信息的multi.Order结构体指针
+//
+// 返回值:
+//   - error: 如果操作失败则返回错误信息
 func (om *OrderManager) AddToOrderManagerQueue(order *multi.Order) error {
+	// 检查订单是否包含TokenId，如果为空则返回错误
 	if order.TokenId == "" {
 		return errors.New("order manger need token id")
 	}
+	// 将订单信息转换为JSON格式
+	// ListingInfo结构体包含订单的过期时间、订单ID、集合地址、代币ID、价格和创建者信息
 	rawInfo, err := json.Marshal(ListingInfo{
-		ExpireIn:       order.ExpireTime,
-		OrderId:        order.OrderID,
-		CollectionAddr: order.CollectionAddress,
+		ExpireIn:       order.ExpireTime,        // 订单过期时间
+		OrderId:        order.OrderID,           // 订单唯一标识符
+		CollectionAddr: order.CollectionAddress, // NFT集合地址
 		TokenID:        order.TokenId,
-		Price:          order.Price,
-		Maker:          order.Maker,
+		Price:          order.Price, // 订单价格
+		Maker:          order.Maker, // 订单创建者地址
 	})
 	if err != nil {
 		return errors.Wrap(err, "failed on marshal listing info")

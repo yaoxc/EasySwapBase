@@ -459,7 +459,7 @@ func (om *OrderManager) getUserValidOrders(address, tokenID, maker string) ([]*V
 // - error: 错误信息
 func (om *OrderManager) addUpdateFloorPriceEvent(event *TradeEvent) error {
 	// 验证事件合法性
-	// 如果是Transfer/ImportCollection/UpdateCollection事件,必须有OrderId
+	// 如果不是Transfer/ImportCollection/UpdateCollection事件,必须有OrderId
 	if event.EventType != Transfer && event.EventType != ImportCollection && event.EventType != UpdateCollection && event.OrderId == "" {
 		return errors.New("invalid update collection floor price. event order id is null")
 	}
